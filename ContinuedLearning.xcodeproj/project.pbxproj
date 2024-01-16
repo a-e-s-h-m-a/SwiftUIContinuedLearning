@@ -11,6 +11,7 @@
 		18DEF0962B56D374008AA133 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0952B56D374008AA133 /* ContentView.swift */; };
 		18DEF0982B56D376008AA133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DEF0972B56D376008AA133 /* Assets.xcassets */; };
 		18DEF09B2B56D376008AA133 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DEF09A2B56D376008AA133 /* Preview Assets.xcassets */; };
+		18DEF0A22B56D563008AA133 /* LongPressGuestureBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0A12B56D563008AA133 /* LongPressGuestureBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		18DEF0952B56D374008AA133 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18DEF0972B56D376008AA133 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18DEF09A2B56D376008AA133 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		18DEF0A12B56D563008AA133 /* LongPressGuestureBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressGuestureBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				18DEF0932B56D374008AA133 /* ContinuedLearningApp.swift */,
 				18DEF0952B56D374008AA133 /* ContentView.swift */,
+				18DEF0A12B56D563008AA133 /* LongPressGuestureBootcamp.swift */,
 				18DEF0972B56D376008AA133 /* Assets.xcassets */,
 				18DEF0992B56D376008AA133 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DEF0A22B56D563008AA133 /* LongPressGuestureBootcamp.swift in Sources */,
 				18DEF0962B56D374008AA133 /* ContentView.swift in Sources */,
 				18DEF0942B56D374008AA133 /* ContinuedLearningApp.swift in Sources */,
 			);
