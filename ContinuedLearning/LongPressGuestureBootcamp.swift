@@ -17,7 +17,10 @@ struct LongPressGuestureBootcamp: View {
             .padding(.horizontal)
             .background(isComplete ? Color.green : Color.gray)
             .cornerRadius(10)
-            .onTapGesture {
+//            .onTapGesture {
+//                isComplete.toggle()
+//            }
+            .onLongPressGesture {
                 isComplete.toggle()
             }
     }
