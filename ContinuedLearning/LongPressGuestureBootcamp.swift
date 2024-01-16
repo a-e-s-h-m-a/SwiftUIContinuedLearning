@@ -20,7 +20,7 @@ struct LongPressGuestureBootcamp: View {
 //            .onTapGesture {
 //                isComplete.toggle()
 //            }
-            .onLongPressGesture {
+            .onLongPressGesture(minimumDuration: 2.0,  maximumDistance: 50) {
                 isComplete.toggle()
             }
     }
