@@ -41,11 +41,11 @@ struct ScrollViewReaderBootcamp: View {
                             .padding()
                             .id(index)
                     }
-                    .onChange(of: scrollToIndex) { value in
+                    .onChange(of: scrollToIndex, { _, newValue in
                         withAnimation(.spring()) {
-                            proxy.scrollTo(value, anchor: .top)
+                            proxy.scrollTo(newValue, anchor: .top)
                         }
-                    }
+                    })
                 }
             }
         }
