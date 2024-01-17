@@ -14,6 +14,7 @@
 		18DEF0A22B56D563008AA133 /* LongPressGuestureBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0A12B56D563008AA133 /* LongPressGuestureBootcamp.swift */; };
 		18DEF0A42B56DFA3008AA133 /* MagnificationGestureBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0A32B56DFA3008AA133 /* MagnificationGestureBootcamp.swift */; };
 		18DEF0A62B56EB6B008AA133 /* RotationGestureBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0A52B56EB6B008AA133 /* RotationGestureBootcamp.swift */; };
+		18E00CAE2B5812E50089C918 /* DragGestureBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E00CAD2B5812E50089C918 /* DragGestureBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		18DEF0A12B56D563008AA133 /* LongPressGuestureBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressGuestureBootcamp.swift; sourceTree = "<group>"; };
 		18DEF0A32B56DFA3008AA133 /* MagnificationGestureBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnificationGestureBootcamp.swift; sourceTree = SOURCE_ROOT; };
 		18DEF0A52B56EB6B008AA133 /* RotationGestureBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationGestureBootcamp.swift; sourceTree = "<group>"; };
+		18E00CAD2B5812E50089C918 /* DragGestureBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				18DEF0A12B56D563008AA133 /* LongPressGuestureBootcamp.swift */,
 				18DEF0A32B56DFA3008AA133 /* MagnificationGestureBootcamp.swift */,
 				18DEF0A52B56EB6B008AA133 /* RotationGestureBootcamp.swift */,
+				18E00CAD2B5812E50089C918 /* DragGestureBootcamp.swift */,
 				18DEF0972B56D376008AA133 /* Assets.xcassets */,
 				18DEF0992B56D376008AA133 /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E00CAE2B5812E50089C918 /* DragGestureBootcamp.swift in Sources */,
 				18DEF0A22B56D563008AA133 /* LongPressGuestureBootcamp.swift in Sources */,
 				18DEF0962B56D374008AA133 /* ContentView.swift in Sources */,
 				18DEF0A42B56DFA3008AA133 /* MagnificationGestureBootcamp.swift in Sources */,
