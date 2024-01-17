@@ -11,8 +11,10 @@ struct ScrollViewReaderBootcamp: View {
     var body: some View {
         ScrollView {
             ScrollViewReader { proxy in
-                Button("CLICK HERE TO GO TO #49") {
-                    proxy.scrollTo(49, anchor: nil)
+                Button("CLICK HERE TO GO TO #30") {
+                    withAnimation(.spring()) {
+                        proxy.scrollTo(30, anchor: .bottom)
+                    }
                 }
                 
                 ForEach(0..<50) { index in
