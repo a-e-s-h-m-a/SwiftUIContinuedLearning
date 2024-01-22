@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184FA73A2B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA7392B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift */; };
 		18DEF0942B56D374008AA133 /* ContinuedLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0932B56D374008AA133 /* ContinuedLearningApp.swift */; };
 		18DEF0962B56D374008AA133 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0952B56D374008AA133 /* ContentView.swift */; };
 		18DEF0982B56D376008AA133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DEF0972B56D376008AA133 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184FA7392B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderBootcamp.swift; sourceTree = "<group>"; };
 		18DEF0902B56D374008AA133 /* ContinuedLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContinuedLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DEF0932B56D374008AA133 /* ContinuedLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuedLearningApp.swift; sourceTree = "<group>"; };
 		18DEF0952B56D374008AA133 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				18E00CAD2B5812E50089C918 /* DragGestureBootcamp.swift */,
 				18E00CAF2B5818C80089C918 /* DragGestureBootcamp2.swift */,
 				18E00CB12B582A980089C918 /* ScrollViewReaderBootcamp.swift */,
+				184FA7392B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift */,
 				18DEF0972B56D376008AA133 /* Assets.xcassets */,
 				18DEF0992B56D376008AA133 /* Preview Content */,
 			);
@@ -161,6 +164,7 @@
 				18E00CB22B582A980089C918 /* ScrollViewReaderBootcamp.swift in Sources */,
 				18DEF0962B56D374008AA133 /* ContentView.swift in Sources */,
 				18DEF0A42B56DFA3008AA133 /* MagnificationGestureBootcamp.swift in Sources */,
+				184FA73A2B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift in Sources */,
 				18DEF0942B56D374008AA133 /* ContinuedLearningApp.swift in Sources */,
 				18DEF0A62B56EB6B008AA133 /* RotationGestureBootcamp.swift in Sources */,
 			);
