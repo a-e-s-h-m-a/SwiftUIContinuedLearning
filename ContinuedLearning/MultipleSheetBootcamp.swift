@@ -19,30 +19,27 @@ struct RandomModel: Identifiable {
 
 struct MultipleSheetBootcamp: View {
     
-    @State var selectedModel: RandomModel = RandomModel(title: "STARTING TITLE")
-    @State var showSheet: Bool = false
-    @State var showSheet2: Bool = false
+    @State var selectedModel: RandomModel? = nil
+//    @State var showSheet: Bool = false
+//    @State var showSheet2: Bool = false
 //    @State var selectedIndex: Int = 0
     
     var body: some View {
         VStack(spacing: 20) {
             Button("Button 1") {
 //                selectedIndex = 1
-//                selectedModel = RandomModel(title: "ONE")
-                showSheet.toggle()
+                selectedModel = RandomModel(title: "ONE")
+//                showSheet.toggle()
             }
-            .sheet(isPresented: $showSheet, content: {
-                NextScreen(selectedModel: RandomModel(title: "ONE"))
-            })
             
             Button("Button 2") {
 //                selectedIndex = 2
-//                selectedModel = RandomModel(title: "TWO")
-                showSheet2.toggle()
+                selectedModel = RandomModel(title: "TWO")
+//                showSheet2.toggle()
             }
-            .sheet(isPresented: $showSheet2, content: {
-                NextScreen(selectedModel: RandomModel(title: "TWO"))
-            })
+        }
+        .sheet(item: $selectedModel) { model in
+            NextScreen(selectedModel: model)
         }
 //        .sheet(isPresented: $showSheet, content: {
 //            NextScreen(selectedModel: selectedModel)
