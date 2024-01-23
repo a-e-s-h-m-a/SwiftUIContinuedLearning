@@ -38,7 +38,7 @@ struct MultipleSheetBootcamp: View {
             }
         }
         .sheet(isPresented: $showSheet, content: {
-//            NextScreen(selectedModel: selectedModel)
+            NextScreen(selectedModel: $selectedModel)
 //            if selectedIndex == 1 {
 //                NextScreen(selectedModel: RandomModel(title: "ONE"))
 //            } else if selectedIndex == 2 {
@@ -52,7 +52,7 @@ struct MultipleSheetBootcamp: View {
 
 struct NextScreen: View {
     
-    let selectedModel: RandomModel
+    @Binding var selectedModel: RandomModel
     
     var body: some View {
         Text(selectedModel.title)
