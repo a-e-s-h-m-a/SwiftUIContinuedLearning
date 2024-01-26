@@ -12,6 +12,7 @@
 		180BEBB32B62B536001B017E /* tada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 180BEBB12B62B536001B017E /* tada.mp3 */; };
 		184FA73A2B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA7392B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift */; };
 		18AD1F682B63F574002C5E2D /* HapticsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD1F672B63F574002C5E2D /* HapticsBootcamp.swift */; };
+		18AD1F6A2B63F97E002C5E2D /* LocalNotificationBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD1F692B63F97E002C5E2D /* LocalNotificationBootcamp.swift */; };
 		18DEF0942B56D374008AA133 /* ContinuedLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0932B56D374008AA133 /* ContinuedLearningApp.swift */; };
 		18DEF0962B56D374008AA133 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEF0952B56D374008AA133 /* ContentView.swift */; };
 		18DEF0982B56D376008AA133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DEF0972B56D376008AA133 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		180BEBB12B62B536001B017E /* tada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tada.mp3; sourceTree = "<group>"; };
 		184FA7392B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderBootcamp.swift; sourceTree = "<group>"; };
 		18AD1F672B63F574002C5E2D /* HapticsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsBootcamp.swift; sourceTree = "<group>"; };
+		18AD1F692B63F97E002C5E2D /* LocalNotificationBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationBootcamp.swift; sourceTree = "<group>"; };
 		18DEF0902B56D374008AA133 /* ContinuedLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContinuedLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DEF0932B56D374008AA133 /* ContinuedLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuedLearningApp.swift; sourceTree = "<group>"; };
 		18DEF0952B56D374008AA133 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				180BEBA92B629511001B017E /* SoundsBootcamp.swift */,
 				18AD1F672B63F574002C5E2D /* HapticsBootcamp.swift */,
 				180BEBAB2B62B4BB001B017E /* Sounds */,
+				18AD1F692B63F97E002C5E2D /* LocalNotificationBootcamp.swift */,
 				18DEF0972B56D376008AA133 /* Assets.xcassets */,
 				18DEF0992B56D376008AA133 /* Preview Content */,
 			);
@@ -191,6 +194,7 @@
 				18F2D00C2B602B22002113A8 /* MaskBootcamp.swift in Sources */,
 				18E00CB02B5818C80089C918 /* DragGestureBootcamp2.swift in Sources */,
 				18E00CAE2B5812E50089C918 /* DragGestureBootcamp.swift in Sources */,
+				18AD1F6A2B63F97E002C5E2D /* LocalNotificationBootcamp.swift in Sources */,
 				18DEF0A22B56D563008AA133 /* LongPressGuestureBootcamp.swift in Sources */,
 				18E00CB22B582A980089C918 /* ScrollViewReaderBootcamp.swift in Sources */,
 				18DEF0962B56D374008AA133 /* ContentView.swift in Sources */,
