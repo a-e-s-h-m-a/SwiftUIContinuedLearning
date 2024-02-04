@@ -49,6 +49,15 @@ class CoredataRelationshipsViewModel: ObservableObject {
     
     func getBusinesses() {
         let request = NSFetchRequest<BusinessEntity>(entityName: "BusinessEntity")
+        
+        // sorting
+        let sort = NSSortDescriptor(keyPath: \BusinessEntity.name, ascending: true)
+        request.sortDescriptors = [sort]
+        
+        // filtering
+//        let filter = NSPredicate(format: "name == %@", "Apple")
+//        request.predicate = filter
+        
         do {
             businesses = try manager.context.fetch(request)
         } catch let error {
@@ -77,15 +86,36 @@ class CoredataRelationshipsViewModel: ObservableObject {
             
     }
     
+    func getEmployees(forBusiness business: BusinessEntity) {
+        let request = NSFetchRequest<EmployeeEntity>(entityName: "EmployeeEntity")
+        
+        // only works with 1-1 relationships
+        let filter = NSPredicate(format: "business == %@", business)
+        request.predicate = filter
+        
+        do {
+            employees = try manager.context.fetch(request)
+        } catch let error {
+            print("Error fetching. \(error.localizedDescription)")
+        }
+            
+    }
+    
+    func updateBusiness() {
+        let existingBusiness = businesses[2]
+        existingBusiness.addToDepartments(departments[1])
+        save()
+    }
+    
     func addBusiness() {
         let newBusiness = BusinessEntity(context: manager.context)
-        newBusiness.name = "Apple"
+        newBusiness.name = "Facebook"
         
         // Add existing departments to the new business
-        // newBusiness.departments = []
+         //newBusiness.departments = [departments[0], departments[1]]
         
         // Add existing employees to the new business
-        // newBusiness.employees = []
+         // newBusiness.employees = [employees[1]]
         
         // Add new business to the existing department
         // newBusiness.addToDepartments(DepartmentEntity)
@@ -98,21 +128,31 @@ class CoredataRelationshipsViewModel: ObservableObject {
     
     func addDepartment() {
         let newDepartment = DepartmentEntity(context: manager.context)
-        newDepartment.name = "Marketing"
-        newDepartment.businesses = [businesses[0]]
+        newDepartment.name = "Finance"
+         newDepartment.businesses = [businesses[0], businesses[1], businesses[2]]
+        newDepartment.addToEmployees(employees[1])
+        
+        // newDepartment.employees = [employees[1]]
+        // newDepartment.addToEmployees(employees[1])
         
         save()
     }
     
     func addEmployee() {
         let newEmployee = EmployeeEntity(context: manager.context)
-        newEmployee.age = 32
+        newEmployee.age = 21
         newEmployee.dateJoined = Date()
-        newEmployee.name = "Chris"
+        newEmployee.name = "John"
         
-        newEmployee.business = businesses[0]
-        newEmployee.department = departments[0]
+        newEmployee.business = businesses[2]
+        newEmployee.department = departments[1]
         
+        save()
+    }
+    
+    func deleteDepartment() {
+        let department = departments[2]
+        manager.context.delete(department)
         save()
     }
     
@@ -139,7 +179,7 @@ struct CoredataRelationshipsBootcamp: View {
             ScrollView {
                 VStack(spacing: 20) {
                     Button(action: {
-                        vm.addEmployee()
+                        vm.deleteDepartment()
                     }, label: {
                         Text("Perform action")
                             .foregroundStyle(.white)
