@@ -30,6 +30,7 @@
 		18E00CB22B582A980089C918 /* ScrollViewReaderBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E00CB12B582A980089C918 /* ScrollViewReaderBootcamp.swift */; };
 		18F2D00A2B60229B002113A8 /* MultipleSheetBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2D0092B60229B002113A8 /* MultipleSheetBootcamp.swift */; };
 		18F2D00C2B602B22002113A8 /* MaskBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2D00B2B602B22002113A8 /* MaskBootcamp.swift */; };
+		18F7D5442B713A0B00361CCC /* BackgroundThreadBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7D5432B713A0B00361CCC /* BackgroundThreadBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		18E00CB12B582A980089C918 /* ScrollViewReaderBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewReaderBootcamp.swift; sourceTree = "<group>"; };
 		18F2D0092B60229B002113A8 /* MultipleSheetBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSheetBootcamp.swift; sourceTree = "<group>"; };
 		18F2D00B2B602B22002113A8 /* MaskBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskBootcamp.swift; sourceTree = "<group>"; };
+		18F7D5432B713A0B00361CCC /* BackgroundThreadBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundThreadBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				1884C0822B6A903100A39571 /* FruitsContainer.xcdatamodeld */,
 				1884C0852B6BEC8A00A39571 /* CoredataRelationshipsBootcamp.swift */,
 				1884C0872B6BEF8800A39571 /* CoredataContainer.xcdatamodeld */,
+				18F7D5432B713A0B00361CCC /* BackgroundThreadBootcamp.swift */,
 				18DEF0972B56D376008AA133 /* Assets.xcassets */,
 				18DEF0992B56D376008AA133 /* Preview Content */,
 			);
@@ -218,6 +221,7 @@
 				1884C0812B6A0BD300A39571 /* CoredataBootcamp.swift in Sources */,
 				18DEF0962B56D374008AA133 /* ContentView.swift in Sources */,
 				18DEF0A42B56DFA3008AA133 /* MagnificationGestureBootcamp.swift in Sources */,
+				18F7D5442B713A0B00361CCC /* BackgroundThreadBootcamp.swift in Sources */,
 				184FA73A2B5ED8FC00CE8F81 /* GeometryReaderBootcamp.swift in Sources */,
 				18AD1F682B63F574002C5E2D /* HapticsBootcamp.swift in Sources */,
 				18DEF0942B56D374008AA133 /* ContinuedLearningApp.swift in Sources */,
