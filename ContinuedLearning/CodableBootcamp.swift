@@ -7,11 +7,34 @@
 
 import SwiftUI
 
-struct CustomerModel: Identifiable {
+struct CustomerModel: Identifiable, Decodable {
     let id: String
     let name: String
     let points: Int
     let isPremium: Bool
+    
+    init(id: String, name: String, points: Int, isPremium: Bool) {
+        self.id = id
+        self.name = name
+        self.points = points
+        self.isPremium = isPremium
+    }
+    
+    // from decodable
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case points
+        case isPremium // = "is_premium"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.points = try container.decode(Int.self, forKey: .points)
+        self.isPremium = try container.decode(Bool.self, forKey: .isPremium)
+    }
 }
 
 class CodableViewModel: ObservableObject {
@@ -25,21 +48,24 @@ class CodableViewModel: ObservableObject {
     func getData() {
         guard let data = getJSONData() else { return }
         
-        if
-            let localData = try? JSONSerialization.jsonObject(with: data, options: []),
-            let dictionary = localData as? [String: Any],
-            let id = dictionary["id"] as? String,
-            let name = dictionary["name"] as? String,
-            let points = dictionary["points"] as? Int,
-            let isPremium = dictionary["isPremium"] as? Bool {
-            let newCustomer = CustomerModel(
-                id: id,
-                name: name,
-                points: points,
-                isPremium: isPremium
-            )
-            customer = newCustomer
-        }
+        // with decodable
+        self.customer = try? JSONDecoder().decode(CustomerModel.self, from: data)
+        
+//        if
+//            let localData = try? JSONSerialization.jsonObject(with: data, options: []),
+//            let dictionary = localData as? [String: Any],
+//            let id = dictionary["id"] as? String,
+//            let name = dictionary["name"] as? String,
+//            let points = dictionary["points"] as? Int,
+//            let isPremium = dictionary["isPremium"] as? Bool {
+//            let newCustomer = CustomerModel(
+//                id: id,
+//                name: name,
+//                points: points,
+//                isPremium: isPremium
+//            )
+//            customer = newCustomer
+//        }
     }
     
     func getJSONData() -> Data? {
