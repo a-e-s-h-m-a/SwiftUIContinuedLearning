@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PostModel: Identifiable, Codable {
+fileprivate struct PostModel: Identifiable, Codable {
     let userId: Int
     let id: Int
     let title: String
@@ -16,7 +16,7 @@ struct PostModel: Identifiable, Codable {
 
 class DownloadingWithEscapingViewModel: ObservableObject {
     
-    @Published var posts: [PostModel] = []
+    @Published fileprivate var posts: [PostModel] = []
     
     init() {
         getPosts()
