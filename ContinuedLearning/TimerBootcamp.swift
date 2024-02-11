@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimerBootcamp: View {
     
-    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
     // Current time
     /*
     @State var currentDate: Date = Date()
@@ -41,7 +41,7 @@ struct TimerBootcamp: View {
      */
     
     // Animation counter
-    @State var count: Int = 0
+    @State var count: Int = 1
     
     var body: some View {
         ZStack {
@@ -53,17 +53,31 @@ struct TimerBootcamp: View {
             )
             .ignoresSafeArea()
             
-            HStack(spacing: 15) {
-                Circle().offset(y: count == 1 ? -20 : 0)
-                Circle().offset(y: count == 2 ? -20 : 0)
-                Circle().offset(y: count == 3 ? -20 : 0)
-            }
-            .frame(width: 150)
-            .foregroundStyle(.white)
+            TabView(
+                selection: $count,
+                content:  {
+                    Rectangle()
+                        .foregroundStyle(.red)
+                        .tag(1)
+                    Rectangle()
+                        .foregroundStyle(.blue)
+                        .tag(2)
+                    Rectangle()
+                        .foregroundStyle(.green)
+                        .tag(3)
+                    Rectangle()
+                        .foregroundStyle(.orange)
+                        .tag(4)
+                    Rectangle()
+                        .foregroundStyle(.pink)
+                        .tag(5)
+            })
+            .frame(height: 200)
+            .tabViewStyle(PageTabViewStyle())
         }
         .onReceive(timer, perform: { _ in
-            withAnimation(.easeInOut(duration: 0.5)) {
-                count = count == 3 ? 0 : count + 1
+            withAnimation(.default) {
+                count = count == 5 ? 1 : count + 1
             }
         })
     }
