@@ -10,13 +10,19 @@ import SwiftUI
 struct TimerBootcamp: View {
     
     let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    
+    // Current time
+    /*
     @State var currentDate: Date = Date()
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
         return formatter
     }
+     */
+    
+    // Countdown
+    @State var count: Int = 10
+    @State var finishedText: String? = nil
     
     var body: some View {
         ZStack {
@@ -28,14 +34,18 @@ struct TimerBootcamp: View {
             )
             .ignoresSafeArea()
             
-            Text(dateFormatter.string(from: currentDate))
+            Text(finishedText ?? "\(count)")
                 .font(.system(size: 100, weight: .semibold, design: .rounded))
                 .foregroundStyle(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
         }
-        .onReceive(timer, perform: { value in
-            currentDate = value
+        .onReceive(timer, perform: { _ in
+            if count <= 1 {
+                finishedText = "Wow!"
+            } else {
+                count -= 1
+            }
         })
     }
 }
