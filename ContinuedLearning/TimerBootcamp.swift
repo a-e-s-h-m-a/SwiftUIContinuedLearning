@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimerBootcamp: View {
     
-    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     // Current time
     /*
     @State var currentDate: Date = Date()
@@ -27,6 +27,7 @@ struct TimerBootcamp: View {
      */
     
     // Countdown to date
+    /*
     @State var timeRemaining: String = ""
     let futureDate: Date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     
@@ -37,6 +38,10 @@ struct TimerBootcamp: View {
         let second = remaining.second ?? 0
         timeRemaining = "\(hour) : \(minute) : \(second)"
     }
+     */
+    
+    // Animation counter
+    @State var count: Int = 0
     
     var body: some View {
         ZStack {
@@ -48,14 +53,18 @@ struct TimerBootcamp: View {
             )
             .ignoresSafeArea()
             
-            Text(timeRemaining)
-                .font(.system(size: 100, weight: .semibold, design: .rounded))
-                .foregroundStyle(.white)
-                .lineLimit(1)
-                .minimumScaleFactor(0.1)
+            HStack(spacing: 15) {
+                Circle().offset(y: count == 1 ? -20 : 0)
+                Circle().offset(y: count == 2 ? -20 : 0)
+                Circle().offset(y: count == 3 ? -20 : 0)
+            }
+            .frame(width: 150)
+            .foregroundStyle(.white)
         }
         .onReceive(timer, perform: { _ in
-            updateTimeRemaining()
+            withAnimation(.easeInOut(duration: 0.5)) {
+                count = count == 3 ? 0 : count + 1
+            }
         })
     }
 }
