@@ -26,7 +26,10 @@ class SubscriberBootcampViewModel: ObservableObject {
             .map { text -> Bool in
                 return text.count > 3 ? true : false
             }
-            .assign(to: \.textIsValid, on: self)
+            // .assign(to: \.textIsValid, on: self) // use .sink whenever possible
+            .sink(receiveValue: { [weak self] isValid in
+                self?.textIsValid = isValid
+            })
             .store(in: &cancellables)
     }
     
