@@ -11,15 +11,26 @@ import Combine
 class SubscriberBootcampViewModel: ObservableObject {
     
     @Published var count: Int = 0
-    // var timer: AnyCancellable?
     var cancellables = Set<AnyCancellable>()
+    
+    @Published var textFieldText: String = ""
+    @Published var textIsValid: Bool = false
     
     init() {
         setUpTimer()
+        addTextFieldSubscriber()
+    }
+    
+    func addTextFieldSubscriber() {
+        $textFieldText
+            .map { text -> Bool in
+                return text.count > 3 ? true : false
+            }
+            .assign(to: \.textIsValid, on: self)
+            .store(in: &cancellables)
     }
     
     func setUpTimer() {
-        // timer = Timer
         Timer
             .publish(every: 1, on: .main, in: .common)
             .autoconnect()
@@ -27,15 +38,6 @@ class SubscriberBootcampViewModel: ObservableObject {
                 guard let self = self else { return }
                 
                 self.count += 1
-                
-//                if let count = self?.count, count >= 10  {
-//                    self?.timer?.cancel()
-//                }
-                if count >= 10 {
-                    for item in cancellables {
-                        item.cancel()
-                    }
-                }
             }
             .store(in: &cancellables)
     }
@@ -50,6 +52,15 @@ struct SubscriberBootcamp: View {
         VStack {
             Text("\(vm.count)")
                 .font(.largeTitle)
+            
+            Text(vm.textIsValid.description)
+            
+            TextField("Type something here...", text: $vm.textFieldText)
+                .padding(.leading)
+                .frame(height: 55)
+                .background(.gray)
+                .cornerRadius(10)
+                .padding(.horizontal)
         }
     }
 }
