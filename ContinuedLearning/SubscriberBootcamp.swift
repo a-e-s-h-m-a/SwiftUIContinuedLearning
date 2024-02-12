@@ -23,6 +23,7 @@ class SubscriberBootcampViewModel: ObservableObject {
     
     func addTextFieldSubscriber() {
         $textFieldText
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map { text -> Bool in
                 return text.count > 3 ? true : false
             }
@@ -56,15 +57,31 @@ struct SubscriberBootcamp: View {
             Text("\(vm.count)")
                 .font(.largeTitle)
             
-            Text(vm.textIsValid.description)
-            
             TextField("Type something here...", text: $vm.textFieldText)
                 .padding(.leading)
                 .frame(height: 55)
                 .background(.gray)
                 .cornerRadius(10)
-                .padding(.horizontal)
+                .overlay (
+                    ZStack {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.red)
+                            .opacity(
+                                vm.textFieldText.count < 1 ? 0.0 :
+                                vm.textIsValid ? 0 : 1.0
+                            )
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.green)
+                            .opacity(vm.textIsValid ? 1.0 : 0)
+                    }
+                    .font(.headline)
+                    .padding(.trailing)
+                    
+                    ,alignment: .trailing
+                   
+                )
         }
+        .padding()
     }
 }
 
