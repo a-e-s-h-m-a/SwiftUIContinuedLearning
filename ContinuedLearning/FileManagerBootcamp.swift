@@ -9,6 +9,53 @@ import SwiftUI
 
 class LocalFileManager {
     static let instance = LocalFileManager()
+    let folderName = "MyApp_Images"
+    
+    init() {
+        createFolderIfneeded()
+    }
+    
+    func createFolderIfneeded() {
+        guard let path = FileManager
+            .default
+            .urls(for: .cachesDirectory, in: .userDomainMask)
+            .first?
+            .appendingPathComponent(folderName)
+            .path
+        else {
+            return
+        }
+        
+        if !FileManager.default.fileExists(atPath: path) {
+            do {
+                try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
+                print("Success creating folder")
+            } catch let error {
+                print("Error creating folder: \(error)")
+            }
+        }
+    }
+    
+    func deleteFolder() {
+        guard let path = FileManager
+            .default
+            .urls(for: .cachesDirectory, in: .userDomainMask)
+            .first?
+            .appendingPathComponent(folderName)
+            .path
+        else {
+            return
+        }
+        
+        if FileManager.default.fileExists(atPath: path) {
+            do {
+                try FileManager.default.removeItem(atPath: path)
+                print("Success removing folder")
+            } catch let error {
+                print("Error removing folder: \(error)")
+            }
+        }
+    }
     
     func saveImage(image: UIImage, name: String) -> String {
         guard
@@ -26,6 +73,7 @@ class LocalFileManager {
 
         do {
             try data.write(to: path)
+            print(path)
             return "Success saving..."
         } catch let error {
             return "Error saving \(error)"
@@ -45,14 +93,14 @@ class LocalFileManager {
     
     func deleteImage(name: String) -> String {
         guard
-            let path = getPathForImage(name: name),
-            FileManager.default.fileExists(atPath: path.path)
+            let path = getPathForImage(name: name)?.path,
+            FileManager.default.fileExists(atPath: path)
         else {
             return "Error getting path"
         }
         
         do {
-            try FileManager.default.removeItem(at: path)
+            try FileManager.default.removeItem(atPath: path)
             return "Successfully deleted."
         } catch let error {
             return "Error deleting image, \(error)"
@@ -65,6 +113,7 @@ class LocalFileManager {
                 .default
                 .urls(for: .cachesDirectory, in: .userDomainMask)
                 .first?
+                .appendingPathComponent(folderName)
                 .appendingPathComponent("\(name).jpg")
         else {
             print("Error getting path")
@@ -101,6 +150,7 @@ class FileManagerViewModel: ObservableObject {
     
     func deleteImage() {
         infoMessage = manager.deleteImage(name: imageName)
+        manager.deleteFolder()
     }
     
 }
