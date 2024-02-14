@@ -44,6 +44,23 @@ class LocalFileManager {
         return UIImage(contentsOfFile: path)
     }
     
+    func deleteImage(name: String) {
+        guard
+            let path = getPathForImage(name: name),
+            FileManager.default.fileExists(atPath: path.path)
+        else {
+            print("Error getting path")
+            return
+        }
+        
+        do {
+            try FileManager.default.removeItem(at: path)
+            print("Successfully deleted.")
+        } catch let error {
+            print("Error deleting image, \(error)")
+        }
+    }
+    
     func getPathForImage(name: String) -> URL? {
         guard
             let path = FileManager
@@ -83,6 +100,10 @@ class FileManagerViewModel: ObservableObject {
         manager.saveImage(image: image, name: imageName)
     }
     
+    func deleteImage() {
+        manager.deleteImage(name: imageName)
+    }
+    
 }
 
 struct FileManagerBootcamp: View {
@@ -101,18 +122,32 @@ struct FileManagerBootcamp: View {
                         .cornerRadius(10)
                 }
                 
-                Button(action: {
-                    vm.saveImage()
-                }, label: {
-                    Text("Save to file manager")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .padding()
-                        .padding(.horizontal)
-                        .background(.blue)
-                        .frame(height: 55)
-                        .cornerRadius(10)
-                })
+                HStack {
+                    Button(action: {
+                        vm.saveImage()
+                    }, label: {
+                        Text("Save to file manager")
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .padding(.horizontal)
+                            .background(.blue)
+                            .frame(height: 55)
+                            .cornerRadius(10)
+                    })
+                    Button(action: {
+                        vm.deleteImage()
+                    }, label: {
+                        Text("Delete from file manager")
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .padding(.horizontal)
+                            .background(.red)
+                            .frame(height: 55)
+                            .cornerRadius(10)
+                    })
+                }
                 
               Spacer()
             }
